@@ -1,0 +1,169 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Polaria — design tokens
+
+   Negro, blanco y dos grises. No hay color de marca, y es a propósito: el
+   panel de Polaria ya es blanco y negro, así que la landing no tiene que
+   inventarle una identidad distinta a la que el usuario va a ver cuando entre.
+
+   Regla del gris: el gris no es una superficie, es una jerarquía. Aparece en el
+   texto secundario, en las líneas de 1px y en una sola banda de fondo. Todo lo
+   demás es blanco puro o negro puro. Si algo se ve apagado, casi siempre es un
+   gris que debería haber sido negro.
+--------------------------------------------------------------------------- */
+
+@theme {
+	/* Tinta */
+	--color-ink-950: #0a0a0a; /* negro: titulares, botones, bandas */
+	--color-ink-900: #17171a; /* cuerpo sobre blanco */
+	--color-ink-800: #2a2a2f;
+	--color-ink-700: #3f3f46;
+	--color-ink-600: #6e6e78; /* texto secundario — el único gris de párrafo */
+	--color-ink-500: #9b9ba4; /* rótulos y metadatos */
+
+	/* Papel */
+	--color-paper-50: #ffffff;
+	--color-paper-100: #fcfcfd;
+	--color-paper-200: #f7f7f8; /* la única banda de fondo gris de la página */
+	--color-paper-300: #ececee; /* líneas de 1px */
+	--color-paper-400: #d8d8dc;
+
+	/*
+	 * Colores de producto.
+	 *
+	 * No son de la marca ni de la landing: viven dentro de la interfaz de
+	 * reservas —confirmado, requiere atención, el foco del teclado— y por eso
+	 * siguen acá aunque la página sea en blanco y negro.
+	 */
+	--color-accent-200: #bae6fd;
+	--color-accent-400: #38bdf8;
+	--color-accent-500: #0ea5e9;
+	--color-accent-600: #0284c7;
+
+	--color-attention-50: #fffbeb;
+	--color-attention-100: #fef3c7;
+	--color-attention-400: #fbbf24;
+	--color-attention-500: #f59e0b;
+	--color-attention-700: #b45309;
+
+	--color-confirm-50: #ecfdf5;
+	--color-confirm-100: #d1fae5;
+	--color-confirm-500: #10b981;
+	--color-confirm-600: #059669;
+	--color-confirm-700: #047857;
+
+	/*
+	 * Una sola familia. El contraste tipográfico lo dan el tamaño y el peso
+	 * —titulares muy grandes y apretados contra un cuerpo tranquilo—, no la
+	 * mezcla de familias. `--font-mono` apunta a la misma pila a propósito: de
+	 * una monoespaciada sólo necesitábamos `tabular-nums`.
+	 */
+	--font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+	--font-mono: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+
+	--ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		/* Next 16 ya no sobreescribe scroll-behavior en navegación salvo que se
+		   declare explícitamente con este atributo (ver layout.tsx). */
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	body {
+		background-color: var(--color-paper-50);
+		color: var(--color-ink-900);
+		font-family: var(--font-sans);
+		text-rendering: optimizeLegibility;
+	}
+
+	/*
+	 * Los titulares van apretados; el cuerpo, no.
+	 *
+	 * A tamaños grandes el espaciado por defecto de la fuente deja huecos que se
+	 * leen como descuido. Cerrarlos es la mitad del efecto de la referencia.
+	 */
+	h1,
+	h2 {
+		letter-spacing: -0.038em;
+		text-wrap: balance;
+	}
+
+	h3 {
+		letter-spacing: -0.02em;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-ink-950);
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
+
+	::selection {
+		background-color: var(--color-ink-950);
+		color: var(--color-paper-50);
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   Aparición al hacer scroll
+
+   El contenido entra cuando llega a pantalla, como en la referencia. Dos
+   decisiones sostienen esto:
+
+   1. El estado escondido lo pone la clase `js`, que un script inline agrega al
+      <html> antes del primer pintado. Sin JavaScript —o si el observador falla—
+      la página se ve completa y quieta. Nunca al revés: una landing en blanco
+      porque no corrió una animación es un fallo mucho más caro que no animar.
+   2. La animación es una sola —opacidad y ocho píxeles— y dura poco. No hay
+      entradas laterales, escalas ni rebotes: el movimiento acompaña la lectura,
+      no la anuncia.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	.js [data-reveal] {
+		opacity: 0;
+	}
+
+	.js [data-reveal='shown'] {
+		animation: reveal-in 0.65s var(--ease-out-soft) both;
+		animation-delay: var(--reveal-delay, 0ms);
+	}
+}
+
+@keyframes reveal-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   Movimiento reducido
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
