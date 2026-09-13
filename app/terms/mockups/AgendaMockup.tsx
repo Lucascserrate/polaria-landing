@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
 	BarChart3,
 	CalendarDays,
@@ -526,6 +526,7 @@ function MockSwitch({ checked }: { checked: boolean }) {
 		</span>
 	);
 }
+
 function DashboardView({
 	title,
 	description,
@@ -567,8 +568,54 @@ function DashboardView({
 	);
 }
 
+const AUTO_INTERVAL_MS = 1200;
+const RESUME_AFTER_IDLE_MS = 3000;
+
 export function AgendaMockup() {
 	const [activeSection, setActiveSection] = useState<AgendaSection>('agenda');
+	const [isPaused, setIsPaused] = useState(false);
+	const isPausedRef = useRef(false);
+	const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	useEffect(() => {
+		if (isPaused) return;
+
+		const order = agendaSidebarItems.map((item) => item.id);
+		const interval = setInterval(() => {
+			setActiveSection((current) => {
+				const currentIndex = order.indexOf(current);
+				const nextIndex = (currentIndex + 1) % order.length;
+				return order[nextIndex];
+			});
+		}, AUTO_INTERVAL_MS);
+
+		return () => clearInterval(interval);
+	}, [activeSection, isPaused]);
+
+	useEffect(() => {
+		return () => {
+			if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+		};
+	}, []);
+
+	function reportInteraction() {
+		if (!isPausedRef.current) {
+			isPausedRef.current = true;
+			setIsPaused(true);
+		}
+
+		if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+		resumeTimeoutRef.current = setTimeout(() => {
+			isPausedRef.current = false;
+			setIsPaused(false);
+		}, RESUME_AFTER_IDLE_MS);
+	}
+
+	function handleManualSelect(id: AgendaSection) {
+		setActiveSection(id);
+		reportInteraction();
+	}
+
 	const view =
 		activeSection === 'agenda' ? (
 			<AgendaView />
@@ -586,7 +633,14 @@ export function AgendaMockup() {
 	return (
 		<section className="px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
 			<div className="mx-auto max-w-7xl">
-				<div className="h-170 overflow-hidden rounded-[2rem] border border-neutral-200 bg-white p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)] sm:h-180 sm:p-4">
+				<div
+					className="h-170 overflow-hidden rounded-[2rem] border border-neutral-200 bg-white p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)] sm:h-180 sm:p-4"
+					onClickCapture={reportInteraction}
+					onWheelCapture={reportInteraction}
+					onScrollCapture={reportInteraction}
+					onTouchStartCapture={reportInteraction}
+					onTouchMoveCapture={reportInteraction}
+				>
 					<div className="grid h-full gap-3 sm:grid-cols-[185px_minmax(0,1fr)]">
 						<aside className="flex h-auto flex-col rounded-[1.5rem] border border-neutral-200 bg-white p-3 text-neutral-950 shadow-sm sm:h-full">
 							<div className="flex shrink-0 items-center gap-3">
@@ -609,7 +663,7 @@ export function AgendaMockup() {
 										<button
 											type="button"
 											key={item.id}
-											onClick={() => setActiveSection(item.id)}
+											onClick={() => handleManualSelect(item.id)}
 											className={`flex min-w-fit w-full shrink-0 items-center gap-2 rounded-2xl px-3 py-2.5 text-left transition-colors ${activeSection === item.id ? 'bg-neutral-100 text-neutral-950' : 'text-neutral-600 hover:bg-neutral-50'}`}
 										>
 											<Icon className="size-3.5" />
@@ -633,4 +687,3 @@ export function AgendaMockup() {
 		</section>
 	);
 }
-
