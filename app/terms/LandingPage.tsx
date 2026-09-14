@@ -6,6 +6,7 @@ import { Footer } from './sections/Footer';
 import { Hero } from './sections/Hero';
 import { NavBar } from './sections/NavBar';
 import { FaqSection } from './sections/FaqSection';
+import { PricingContactSection } from './sections/PricingContactSection';
 import { SimpleSteps } from './sections/SimpleSteps';
 import { WhatsAppFlow } from './sections/WhatsAppFlow';
 import { WhatsAppSection } from './sections/WhatsAppSection';
@@ -25,6 +26,7 @@ export default function LandingPage() {
 				<WhatsAppFlow />
 				<FaqSection />
 				<SimpleSteps />
+				<PricingContactSection />
 				<FinalCTA />
 			</main>
 			<Footer />

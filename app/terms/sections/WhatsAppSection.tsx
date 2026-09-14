@@ -9,9 +9,9 @@ export function WhatsAppSection() {
 						Reservas por WhatsApp, automáticas.
 					</h2>
 					<p className="mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
-						Deja que Polaria responda y agende por ti las 24 horas del día. Tus
-						clientes obtienen respuestas al instante sin que tengas que tocar tu
-						celular.
+						Polaria puede responder consultas y agendar turnos automáticamente según
+						la configuración de tu negocio, para que tus clientes encuentren
+						disponibilidad sin depender de que estés pendiente del celular.
 					</p>
 				</div>
 				<div className="mx-auto w-full max-w-md">

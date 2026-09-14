@@ -128,6 +128,13 @@ function PricingCard({
 							</div>
 						))}
 					</div>
+					{plan.name === 'Pro' && (
+						<p className="mt-4 text-xs leading-5 text-neutral-500">
+							Los cargos de WhatsApp Business, si aplican, los factura Meta
+							directamente según el uso y sus tarifas vigentes. Polaria no cobra
+							por mensaje.
+						</p>
+					)}
 					<Button
 						asChild
 						className={`mt-6 h-11 w-full rounded-full px-6 ${plan.featured ? 'bg-neutral-950 text-white hover:bg-neutral-800' : ''}`}

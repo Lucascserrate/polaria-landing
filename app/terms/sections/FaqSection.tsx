@@ -33,6 +33,16 @@ const faqs = [
 			'Sí, puedes empezar sin tarjeta de crédito y evaluar el flujo principal antes de contratar el plan.',
 	},
 	{
+		question: '¿WhatsApp tiene algún costo?',
+		answer:
+			'A partir del 1 de octubre de 2026, Meta ofrece 1.000 mensajes de servicio sin cargo por mes y por número. Después de ese límite, puede aplicar cargos según el tipo de mensaje, el país del destinatario y las tarifas vigentes de Meta. La facturación se configura directamente en Meta Business Manager; Polaria no cobra por mensaje.',
+	},
+	{
+		question: '¿Cómo veo los planes y precios?',
+		answer:
+			'Por ahora te acompañamos de forma personalizada. Escribinos por WhatsApp y te contamos el plan disponible y los detalles para tu negocio.',
+	},
+	{
 		question: '¿Se integra con otras herramientas?',
 		answer:
 			'Sí. La idea es que la landing hable de integraciones reales o del flujo de uso. Si más adelante querés agregar integraciones específicas, esta sección queda lista para ampliarlas.',
