@@ -65,7 +65,6 @@ export function PricingSection() {
 		<section id="precios" className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="Precios"
 					title="Planes simples, pensados para crecer contigo."
 					description="Elige el nivel que acompaña a tu negocio hoy y cambia de plan cuando necesites más volumen o automatización."
 				/>

@@ -5,11 +5,7 @@ export function FinalCTA() {
 	return (
 		<section className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="final-cta mx-auto max-w-7xl overflow-hidden rounded-[2.25rem] border border-neutral-200 bg-neutral-950 px-6 py-14 text-center text-white sm:px-10 lg:px-16">
-				<p className="text-[11px] font-medium uppercase tracking-[0.24em] text-white/45">
-					Empezá hoy
-				</p>
-
-				<h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-tighter sm:text-5xl">
+				<h2 className="mx-auto max-w-3xl text-3xl font-semibold tracking-tighter sm:text-5xl">
 					Empezá a organizar tu negocio hoy.
 				</h2>
 

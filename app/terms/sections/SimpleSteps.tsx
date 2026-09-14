@@ -46,7 +46,6 @@ export function SimpleSteps() {
 		<section className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="Empezá en minutos"
 					title="Simple para vos y para tus clientes."
 					description="Configurá tu negocio una vez y dejá que Polaria se encargue del resto."
 				/>

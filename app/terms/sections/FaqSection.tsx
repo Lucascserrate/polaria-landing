@@ -100,7 +100,6 @@ export function FaqSection() {
 		<section id="faq" className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="FAQ"
 					title="Respuestas rápidas a las dudas más comunes."
 					description="Una base simple para despejar objeciones antes de registrarse."
 				/>

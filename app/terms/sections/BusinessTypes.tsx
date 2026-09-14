@@ -13,7 +13,6 @@ export function BusinessTypes() {
 		<section className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="Para todo tipo de negocio basado en citas"
 					title="Pensado para tu rubro, sea cual sea."
 					description="Desde barberías hasta clínicas dentales, Polaria se adapta al flujo de citas de tu negocio."
 				/>

@@ -6,18 +6,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { whatsappUrl } from '@/config/cta';
 
-import { SectionEyebrow } from '../shared/Section';
-
 export function Hero() {
 	return (
 		<section className="relative overflow-hidden">
 			<div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_42%),linear-gradient(to_bottom,rgba(255,255,255,1),rgba(250,250,250,1))]" />
 			<div className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:px-6 sm:pb-16 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-28">
 				<div className="mx-auto max-w-4xl text-center">
-					<SectionEyebrow>
-						El nuevo estándar para negocios de turnos
-					</SectionEyebrow>
-					<h1 className="hero-title mx-auto mt-5 max-w-4xl text-4xl font-semibold tracking-[-0.06em] text-neutral-950 opacity-0 sm:text-6xl lg:text-7xl">
+					<h1 className="hero-title mx-auto max-w-4xl text-4xl font-semibold tracking-[-0.06em] text-neutral-950 opacity-0 sm:text-6xl lg:text-7xl">
 						Tu negocio, organizado.
 						<br />
 						Tus clientes, atendidos.

@@ -43,9 +43,8 @@ export function Features() {
 		<section id="automatizaciones" className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="Funcionalidades"
-					title="Todo lo que necesitás para gestionar tu negocio."
-					description="Automatiza tareas administrativas repetitivas y enfócate en lo que mejor sabes hacer."
+					title="Menos tareas manuales, más tiempo para tu negocio."
+					description="Simplificá la gestión diaria con herramientas que automatizan lo repetitivo y te ayudan a enfocarte en tus clientes."
 				/>
 				<div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
 					{features.map((feature, index) => (

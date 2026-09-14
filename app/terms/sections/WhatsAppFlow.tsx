@@ -46,7 +46,6 @@ export function WhatsAppFlow() {
 		<section id="integraciones" className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="Cómo funciona WhatsApp"
 					title="¿Cómo funciona la integración?"
 				/>
 				<div className="mt-10 grid gap-4 lg:grid-cols-4">

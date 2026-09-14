@@ -7,7 +7,6 @@ export function BookingLinkSection() {
 			<div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
 				<div>
 					<SectionTitle
-						eyebrow="Link de reservas"
 						title="Tu link de reservas. Compartilo en todas tus redes."
 						description="Crea una página de reserva pública y atractiva. Tus clientes podrán ver tus servicios disponibles, elegir profesional y agendar en menos de 1 minuto."
 					/>

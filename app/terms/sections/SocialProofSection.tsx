@@ -27,7 +27,6 @@ export function SocialProofSection() {
 		<section className="px-4 py-14 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-7xl">
 				<SectionTitle
-					eyebrow="Prueba social"
 					title="Negocios reales que ya usan Polaria."
 					description="Historias cortas de equipos que ordenaron reservas, mejoraron su atención y redujeron el trabajo manual."
 				/>
