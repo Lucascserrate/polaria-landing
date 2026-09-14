@@ -170,7 +170,7 @@ function HourGrid({ columns }: { columns: AgendaColumn[] }) {
 	);
 }
 
-function AgendaView() {
+export function AgendaView() {
 	const [viewMode, setViewMode] = useState<'dia' | 'semana'>('dia');
 
 	const dayColumns: AgendaColumn[] = mockStaff.map((staff) => ({
@@ -250,7 +250,7 @@ function AgendaView() {
 	);
 }
 
-function ClientsView() {
+export function ClientsView() {
 	return (
 		<DashboardView
 			title="Clientes"
@@ -288,7 +288,7 @@ function ClientsView() {
 		</DashboardView>
 	);
 }
-function ServicesView() {
+export function ServicesView() {
 	return (
 		<DashboardView
 			title="Servicios"
@@ -320,7 +320,7 @@ function ServicesView() {
 		</DashboardView>
 	);
 }
-function StaffView() {
+export function StaffView() {
 	return (
 		<DashboardView
 			title="Equipo"
@@ -366,7 +366,7 @@ function StaffView() {
 		</DashboardView>
 	);
 }
-function AnalyticsView() {
+export function AnalyticsView() {
 	const totalRevenue = mockServices.reduce(
 		(sum, service) => sum + service.price,
 		0,
@@ -449,7 +449,7 @@ function AnalyticsView() {
 		</DashboardView>
 	);
 }
-function SettingsView() {
+export function SettingsView() {
 	const rows = [
 		{
 			title: 'Información del negocio',
@@ -514,7 +514,7 @@ function SettingsView() {
 	);
 }
 
-function MockSwitch({ checked }: { checked: boolean }) {
+export function MockSwitch({ checked }: { checked: boolean }) {
 	return (
 		<span
 			aria-hidden="true"
@@ -527,7 +527,7 @@ function MockSwitch({ checked }: { checked: boolean }) {
 	);
 }
 
-function DashboardView({
+export function DashboardView({
 	title,
 	description,
 	count,
@@ -631,7 +631,7 @@ export function AgendaMockup() {
 			<SettingsView />
 		);
 	return (
-		<section className="px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
+		<section className="hidden px-4 pb-14 sm:block sm:px-6 lg:px-8 lg:pb-20">
 			<div className="mx-auto max-w-7xl">
 				<div
 					className="h-170 overflow-hidden rounded-[2rem] border border-neutral-200 bg-white p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)] sm:h-180 sm:p-4"

@@ -9,6 +9,7 @@ import { FaqSection } from './sections/FaqSection';
 import { SimpleSteps } from './sections/SimpleSteps';
 import { WhatsAppFlow } from './sections/WhatsAppFlow';
 import { WhatsAppSection } from './sections/WhatsAppSection';
+import { AgendaMockupMobile } from './mockups/AgendaMockupMobile';
 
 export default function LandingPage() {
 	return (
@@ -17,6 +18,7 @@ export default function LandingPage() {
 			<main>
 				<Hero />
 				<AgendaMockup />
+				<AgendaMockupMobile />
 				<BusinessTypes />
 				<Features />
 				<WhatsAppSection />
