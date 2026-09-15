@@ -6,6 +6,19 @@ import { Button } from '@/components/ui/button';
 import { whatsappUrl } from '@/config/cta';
 
 export function Hero() {
+	const scrollToDemo = (event: React.MouseEvent<HTMLAnchorElement>) => {
+		event.preventDefault();
+		const demo = document.getElementById('demo');
+		if (!demo) return;
+
+		demo.scrollIntoView({
+			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+				? 'auto'
+				: 'smooth',
+			block: 'center',
+		});
+	};
+
 	return (
 		<section className="relative overflow-hidden">
 			<div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.06),transparent_42%),linear-gradient(to_bottom,rgba(255,255,255,1),rgba(250,250,250,1))]" />
@@ -32,7 +45,7 @@ export function Hero() {
 							variant="outline"
 							className="hero-secondary-btn h-11 rounded-full border-neutral-300 px-6 transition-transform duration-300 ease-out hover:scale-[1.02] hover:bg-neutral-50 active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:scale-100"
 						>
-							<Link href="#integraciones">
+							<Link href="#demo" onClick={scrollToDemo}>
 								Ver cómo funciona
 							</Link>
 						</Button>
