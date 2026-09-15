@@ -5,6 +5,7 @@ import { Menu } from 'lucide-react';
 import { useState } from 'react';
 
 import { Logo } from '@/app/logo';
+import { whatsappUrl } from '@/config/cta';
 
 export function NavBar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,10 +38,12 @@ export function NavBar() {
 				</nav>
 				<div className="hidden items-center gap-2 md:flex">
 					<Link
-						href="https://app.polariahq.com/auth"
-						className="rounded-full px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-950"
+						href={whatsappUrl()}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="rounded-full bg-neutral-950 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
 					>
-						Acceder
+						Probar por WhatsApp
 					</Link>
 				</div>
 				<div className="relative md:hidden">
@@ -76,11 +79,13 @@ export function NavBar() {
 							))}
 							<div className="my-1 border-t border-neutral-100" />
 							<Link
-								href="https://app.polariahq.com/auth"
+								href={whatsappUrl()}
+								target="_blank"
+								rel="noopener noreferrer"
 								onClick={() => setIsMenuOpen(false)}
 								className="rounded-xl px-3 py-2.5 transition-colors hover:bg-neutral-50 hover:text-neutral-950"
 							>
-								Acceder
+								Probar por WhatsApp
 							</Link>
 						</nav>
 					</div>

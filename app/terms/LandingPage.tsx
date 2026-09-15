@@ -1,7 +1,6 @@
 import { AgendaMockup } from './mockups/AgendaMockup';
 import { BusinessTypes } from './sections/BusinessTypes';
 import { Features } from './sections/Features';
-import { FinalCTA } from './sections/FinalCTA';
 import { Footer } from './sections/Footer';
 import { Hero } from './sections/Hero';
 import { NavBar } from './sections/NavBar';
@@ -27,7 +26,6 @@ export default function LandingPage() {
 				<FaqSection />
 				<SimpleSteps />
 				<PricingContactSection />
-				<FinalCTA />
 			</main>
 			<Footer />
 		</div>
