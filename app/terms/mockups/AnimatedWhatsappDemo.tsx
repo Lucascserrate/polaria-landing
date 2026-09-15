@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import {
 	CheckCheck,
-	MessageSquareText,
 	MoreVertical,
 	Phone,
+	Store,
 	Video,
 } from 'lucide-react';
 
@@ -178,7 +178,7 @@ export default function AnimatedWhatsappDemo() {
 
 			<div className="flex shrink-0 items-center gap-2.5 bg-[#075e54] px-3 py-3 text-white">
 				<div className="flex size-8 items-center justify-center rounded-full bg-white/15">
-					<MessageSquareText className="size-4" />
+					<Store className="size-4" />
 				</div>
 				<div className="min-w-0 flex-1">
 					<p className="truncate text-xs font-semibold">Studio Norte</p>
