@@ -1,73 +1,19 @@
-import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
-import { site } from "@/config/site";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
-/**
- * Una sola familia en todo el sitio.
- *
- * El contraste tipográfico lo dan el tamaño y el peso —titulares muy grandes y
- * apretados contra un cuerpo tranquilo—, no la mezcla de familias. Geist quedó
- * afuera por lo contrario de un defecto: es correcta y no dice nada, y es la
- * fuente que usa media industria.
- *
- * `axes` no hace falta: la variable de peso viene completa en la variante
- * estándar, y se usa de 400 a 600.
- */
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-/**
- * El layout raíz sólo arma el documento: fuente, estilos y `<body>`.
- *
- * El encabezado y el pie no están acá: cada grupo de rutas trae el suyo.
- * `app/(marketing)` es la landing, con su navegación de anclas y su pie
- * completo; `app/(legal)` son /privacy y /terms, que se sostienen con un
- * wordmark y un pie del tamaño de una firma.
- *
- * Lo que se agregue acá lo heredan las dos. Antes de tocarlo: ¿esto es del
- * documento, o es de la landing?
- */
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: `${site.name} — ${site.tagline}`,
-    template: `%s · ${site.name}`,
-  },
-  description: site.description,
-  applicationName: site.name,
-  robots: { index: true, follow: true },
+	title: 'Polaria',
+	description: 'AI Booking Assistant',
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html
-      lang="es"
-      // Next 16 ya no fuerza el scroll instantáneo en navegación salvo que se
-      // declare este atributo. Sin él, el scroll suave global se aplicaría
-      // también a los cambios de ruta.
-      data-scroll-behavior="smooth"
-      className={`${instrumentSans.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col">
-        {/*
-          Marca que JavaScript corre, antes de que se pinte nada. De esta clase
-          cuelga el estado inicial de las apariciones al hacer scroll (ver
-          globals.css): sin ella el contenido se ve completo y quieto, que es
-          exactamente lo que queremos si el script no llega a ejecutarse.
-        */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
-          }}
-        />
-        {children}
-      </body>
-    </html>
-  );
+	return (
+		<html lang="es" className="h-full">
+			<body className="antialiased h-full flex flex-col">
+				{children}
+			</body>
+		</html>
+	);
 }
