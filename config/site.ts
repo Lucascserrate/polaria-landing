@@ -23,9 +23,6 @@ export const site = {
 		country: 'Bolivia',
 		city: 'Santa Cruz de la Sierra',
 	},
-
-	locale: 'es-BO',
-	currency: 'Bs',
 } as const;
 
 /**

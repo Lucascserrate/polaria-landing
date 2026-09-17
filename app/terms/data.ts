@@ -312,16 +312,6 @@ export const weekDays = [
 	{ label: 'SAB', date: '5' },
 	{ label: 'DOM', date: '6' },
 ];
-export const scheduleTimeSlots = [
-	'09:00',
-	'10:00',
-	'11:00',
-	'12:00',
-	'13:00',
-	'14:00',
-	'15:00',
-	'16:00',
-];
 export const agendaSidebarItems: AgendaSidebarItem[] = [
 	{ id: 'agenda', label: 'Agenda' },
 	{ id: 'personal', label: 'Equipo' },
@@ -330,30 +320,6 @@ export const agendaSidebarItems: AgendaSidebarItem[] = [
 	{ id: 'analiticas', label: 'Analiticas' },
 	{ id: 'configuracion', label: 'Configuracion' },
 ];
-export const whatsappMessages = [
-	{
-		from: 'Cliente',
-		text: 'Hola, quiero reservar para manana',
-		bubble: 'bubble-white',
-	},
-	{
-		from: 'Polaria',
-		text: 'Hola! Que servicio te gustaria agendar?',
-		bubble: 'bubble-green',
-	},
-	{ from: 'Cliente', text: 'Corte clasico', bubble: 'bubble-white' },
-	{
-		from: 'Polaria',
-		text: 'Estos son los horarios disponibles:\n10:00 · 12:30 · 16:30',
-		bubble: 'bubble-green',
-	},
-	{ from: 'Cliente', text: '16:30', bubble: 'bubble-white' },
-	{
-		from: 'Polaria',
-		text: 'Listo! Tu turno quedo agendado.\nCorte clasico · manana 16:30',
-		bubble: 'bubble-green',
-	},
-] as const;
 export const steps = [
 	{
 		index: '01',
