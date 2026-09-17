@@ -8,6 +8,7 @@ import {
 	Store,
 	Video,
 } from 'lucide-react';
+import { formatPrice } from '@/config/pricing';
 
 type DemoOption = { id: string; label: string };
 type DemoMessage = {
@@ -39,9 +40,9 @@ const demoFlow: DemoMessage[] = [
 		sender: 'assistant',
 		text: '¡Perfecto! ✂️ ¿Qué servicio querés reservar?',
 		options: [
-			{ id: 'cut-beard', label: 'Corte + Barba · Bs 40' },
-			{ id: 'cut', label: 'Corte clásico · Bs 25' },
-			{ id: 'beard', label: 'Barba · Bs 20' },
+			{ id: 'cut-beard', label: `Corte + Barba · ${formatPrice(40)}` },
+			{ id: 'cut', label: `Corte clásico · ${formatPrice(25)}` },
+			{ id: 'beard', label: `Barba · ${formatPrice(20)}` },
 		],
 	},
 	{ id: 'service-selected', sender: 'user', text: 'Corte + Barba' },

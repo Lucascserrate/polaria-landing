@@ -18,6 +18,7 @@ import {
 	Users,
 } from 'lucide-react';
 import { Logo } from '@/app/logo';
+import { formatPrice } from '@/config/pricing';
 import {
 	agendaSidebarItems,
 	mockAppointments,
@@ -313,7 +314,9 @@ export function ServicesView() {
 							</p>
 						</div>
 						<span className="text-neutral-500">{service.duration} min</span>
-						<span className="text-right font-medium">Bs {service.price}</span>
+						<span className="text-right font-medium">
+							{formatPrice(service.price)}
+						</span>
 					</div>
 				))}
 			</div>
@@ -391,11 +394,11 @@ export function AnalyticsView() {
 					Facturado · este mes
 				</p>
 				<p className="mt-2 text-3xl font-semibold tracking-[-0.03em]">
-					Bs {totalRevenue}
+					{formatPrice(totalRevenue)}
 				</p>
 				<p className="mt-1 text-xs text-neutral-500">
-					{totalAppointments} citas atendidas · Bs{' '}
-					{Math.round(totalRevenue / totalAppointments)} por cita
+					{totalAppointments} citas atendidas ·{' '}
+					{formatPrice(Math.round(totalRevenue / totalAppointments))} por cita
 				</p>
 			</div>
 			<div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -408,7 +411,7 @@ export function AnalyticsView() {
 							<div key={staff.id}>
 								<div className="flex items-center justify-between text-[11px] font-medium">
 									<span>{staff.name}</span>
-									<span>Bs {revenue}</span>
+									<span>{formatPrice(revenue)}</span>
 								</div>
 								<div className="mt-1.5 h-1.5 rounded-full bg-neutral-100">
 									<div
@@ -431,7 +434,7 @@ export function AnalyticsView() {
 							<div key={service.id}>
 								<div className="flex items-center justify-between text-[11px] font-medium">
 									<span>{service.name}</span>
-									<span>Bs {service.price}</span>
+									<span>{formatPrice(service.price)}</span>
 								</div>
 								<div className="mt-1.5 h-1.5 rounded-full bg-neutral-100">
 									<div
