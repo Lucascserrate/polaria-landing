@@ -48,12 +48,15 @@ function Button({
 	size = 'default',
 	asChild = false,
 	...props
-}: (React.ComponentProps<'button'> &
-	React.ComponentProps<'a'>) &
+}: (React.ComponentProps<'button'> & React.ComponentProps<'a'>) &
 	VariantProps<typeof buttonVariants> & {
 		asChild?: boolean;
 	}) {
-	const Comp: React.ElementType = asChild ? Slot.Root : props.href ? 'a' : 'button';
+	const Comp: React.ElementType = asChild
+		? Slot.Root
+		: props.href
+			? 'a'
+			: 'button';
 
 	return (
 		<Comp

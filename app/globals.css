@@ -71,6 +71,8 @@
 :root {
 	/* Fuente de sistema legible y disponible en todos los navegadores. */
 	--font-sans: Arial, Helvetica, sans-serif;
+	--font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+	--font-mono: var(--font-geist-mono), ui-monospace, 'SF Mono', Menlo, monospace;
 	/*
 	 * Ancho del menú lateral. Es una variable porque cada pantalla se aparta con
 	 * este mismo valor: con dos números separados, colapsar el menú dejaría una
