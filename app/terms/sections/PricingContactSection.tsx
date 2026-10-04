@@ -11,16 +11,20 @@ export function PricingContactSection() {
 					¿Cuánto cuesta Polaria?
 				</h2>
 				<p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
-					Cada negocio tiene su propia forma de trabajar. Escribinos por WhatsApp y
-					te contamos el plan disponible, cómo funciona y cómo ponerlo en marcha
-					para tu equipo.
+					Cada negocio tiene su propia forma de trabajar. Escribinos por
+					WhatsApp y te contamos el plan disponible, cómo funciona y cómo
+					ponerlo en marcha para tu equipo.
 				</p>
 				<div className="mt-8">
 					<Button
 						asChild
 						className="h-11 rounded-full bg-white px-6 text-neutral-950 transition-all duration-300 hover:-translate-y-0.5 hover:bg-neutral-200 hover:shadow-lg active:translate-y-0"
 					>
-						<Link href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+						<Link
+							href={whatsappUrl()}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							Consultar por WhatsApp
 						</Link>
 					</Button>
