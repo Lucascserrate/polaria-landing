@@ -7,6 +7,12 @@ import { priceOf } from './price-of';
 const business = demoBusiness;
 const labels = pageDemo.labels;
 
+/**
+ * Los servicios: nombre, duración, precio y un botón. La descripción se lee recién
+ * al elegir el servicio, como en el producto. El botón no es decorativo: elige ese
+ * servicio y abre el panel, el gesto más corto que prueba que se reserva desde la
+ * página.
+ */
 export function Services({ booking }: { booking: DemoBooking }) {
 	const { serviceIds, step } = booking.state;
 

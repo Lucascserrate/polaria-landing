@@ -7,6 +7,11 @@ const business = demoBusiness;
 const labels = pageDemo.labels;
 
 export function Portfolio() {
+	/*
+	 * El mosaico del producto: la primera foto ocupa 2x2 y el resto una celda. Con
+	 * 3 fotos son tres columnas, con 5 o más cuatro; con 1, 2 o 4 no hay forma
+	 * limpia y se muestran de a dos.
+	 */
 	const count = business.portfolio.length;
 	const mosaic = count === 3 || count >= 5;
 	const columns =

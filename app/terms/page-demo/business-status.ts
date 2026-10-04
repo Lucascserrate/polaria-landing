@@ -111,6 +111,11 @@ export type BookableDay = {
 	endTime: string;
 };
 
+/**
+ * Los próximos días con atención, en orden. No son los próximos siete del
+ * calendario sino los siete que el negocio atiende: el domingo no aparece, al
+ * revés que en la lista de horarios, que sí muestra los siete.
+ */
 export function upcomingDays(
 	hours: DemoDay[],
 	timeZone: string,

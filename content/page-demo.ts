@@ -152,18 +152,6 @@ export const pageDemo = {
 		},
 	},
 
-	location: {
-		/**
-		 * El mapa es un dibujo, no un mapa.
-		 *
-		 * La página real usa Mapbox. La landing no carga mapas ni tiene clave de
-		 * API —ni la necesita para esta sección—, así que acá hay un croquis y
-		 * está escrito que lo es. Un mapa de adornos que se ve pero no se puede
-		 * abrir sería peor que no tener mapa.
-		 */
-		mapNote: 'Mapa no disponible en esta demostración.',
-	},
-
 	pageFooter: {
 		poweredBy: 'Reservas con',
 		product: 'Polaria',

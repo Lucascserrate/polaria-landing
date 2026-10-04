@@ -9,6 +9,7 @@ import { SimpleSteps } from './sections/SimpleSteps';
 import { WhatsAppFlow } from './sections/WhatsAppFlow';
 import { WhatsAppSection } from './sections/WhatsAppSection';
 import { AgendaMockupMobile } from './mockups/AgendaMockupMobile';
+import { PageDemo } from './page-demo';
 
 export default function LandingPage() {
 	return (
@@ -21,6 +22,7 @@ export default function LandingPage() {
 				<BusinessTypes />
 				<Features />
 				<WhatsAppSection />
+				<PageDemo />
 				<WhatsAppFlow />
 				<FaqSection />
 				<SimpleSteps />
