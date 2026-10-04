@@ -84,6 +84,33 @@ perdieron en el camino y hay que volver a generarlas. La que más falta es **la
 agenda**, que es la mejor imagen posible para el hero —es la pantalla que
 resume el producto—. Hoy el hero usa Analíticas.
 
+## La página del cliente (demo)
+
+La sección `sections/page-demo/` es lo que ve el cliente, no el dueño. Es la
+mitad del producto que la landing no mostraba en ningún lado, y por eso está
+**entre `Overview` y `Features`**: es el puente entre lo que el cliente abre con
+el enlace y el panel que configura el dueño.
+
+**Es una demostración y no el producto.** Un negocio ficticio, `Estudio Marea`,
+montado a mano en `content/page-demo.ts`: sin API, sin React Query, sin sesión,
+sin `polaria-front` y sin datos reales. La reserva se resuelve con un reducer
+local (`use-demo-booking.ts`) y termina en un comprobante que dice que no reservó
+nada. Si alguna vez hay que mostrar un horario real, es otra página y vive en
+`polaria-explore`, no acá.
+
+Tres cosas que rompen las reglas de arriba y son deliberadas:
+
+- **`<BusinessPage>` es un Client Component.** El estado abierto/cerrado de la
+  cabecera sale de la hora. En el servidor se calcularía una vez y quedaría
+  congelado en el build: un sitio estático que dice "Cerrado" un martes a las
+  once de la mañana es peor que uno que no dice nada.
+- **El mapa es un SVG.** La landing no carga mapas ni tiene clave de API. El
+  croquis lo dice en una línea, porque un mapa que no funciona es peor que uno
+  que no promete nada.
+- **El botón de la demo es local.** El de `components/ui/button.tsx` es el de la
+  landing: chico y con esquinas de 0.5rem. El de una página de reservas es una
+  píldora alta del tamaño de un dedo. Son dos superficies distintas.
+
 ## Mapa de rutas
 
 `app/` está partido en dos grupos que no comparten nada más que el documento
@@ -105,7 +132,8 @@ vuelve al inicio— y su propio pie.
 - **Todo el copy vive en `content/`.** Si estás escribiendo texto visible dentro
   de un `.tsx`, está en el lugar equivocado.
 - **Server Components por defecto.** El único componente cliente es `<Reveal>`,
-  y sólo porque necesita un observador.
+  y sólo porque necesita un observador. La excepción es `<BusinessPage>`, la
+  demo de la página del cliente: ver abajo.
 - **Los CTA salen de `config/cta.ts`.** Hay un número real donde cualquiera
   puede probar el asistente; si cambia, se cambia ahí y en ningún otro lado.
 

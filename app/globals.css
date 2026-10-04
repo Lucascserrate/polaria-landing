@@ -23,6 +23,35 @@
 	}
 }
 
+/**
+ * La paleta de la landing.
+ *
+ * Negro, blanco y grises. No hay color de marca: el único color de la página
+ * entra por las capturas del panel, que ya es blanco y negro.
+ *
+ * El gris es jerarquía, no superficie. Por eso la escala va de `ink-950` —el
+ * negro del texto— a `ink-500` —el gris que todavía se lee— y no al revés: un
+ * gris claro no jerarquiza nada, tapa. Los `paper-*` son superficies: el papel
+ * sobre el que se apoya una tarjeta y las líneas de 1px que la separan.
+ *
+ * No hay `attention-*`. El sitio no tiene un color de atención y agregar uno
+ * sería inventar una jerarquía que la dirección visual no reconoce.
+ */
+@theme {
+	--color-ink-950: #0a0a0a;
+	--color-ink-900: #17171a;
+	--color-ink-800: #2a2a2f;
+	--color-ink-700: #3f3f46;
+	--color-ink-600: #6e6e78;
+	--color-ink-500: #9b9ba4;
+
+	--color-paper-50: #ffffff;
+	--color-paper-100: #fcfcfd;
+	--color-paper-200: #f7f7f8;
+	--color-paper-300: #ececee;
+	--color-paper-400: #d8d8dc;
+}
+
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
