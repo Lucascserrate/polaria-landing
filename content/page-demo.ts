@@ -90,11 +90,6 @@ export const pageDemo = {
 		lead: 'Es lo que abre quien tiene tu enlace: un QR pegado en el local, tu Instagram, la biografía de WhatsApp. Dice qué hacés, cuánto cuesta y a qué hora estás libre, y reserva sin escribirte. Acá podés probarla — es una demostración y no guarda nada.',
 	},
 
-	address: 'polariahq.com/prueba',
-
-	footnote:
-		'Demostración interactiva con datos de ejemplo. No se conecta a la API de Polaria y nada de lo que elijas queda guardado.',
-
 	labels: {
 		services: 'Servicios',
 		schedule: 'Horarios',
