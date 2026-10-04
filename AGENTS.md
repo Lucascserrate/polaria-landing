@@ -39,9 +39,10 @@ npm run build
 
 ## Variables de entorno
 
-Ninguna. La landing es estática: no llama a la API de Polaria ni a Mapbox, y no
-tiene rutas de API propias. Si aparece una variable de entorno acá, casi seguro
-lo que se está escribiendo pertenece a `polaria-explore`.
+Ninguna. La landing es estática: no llama a la API de Polaria ni a ningún
+servicio de mapas con credencial —el mapa es el `embed` público de OpenStreetMap—,
+y no tiene rutas de API propias. Si aparece una variable de entorno acá, casi
+seguro lo que se está escribiendo pertenece a `polaria-explore`.
 
 ## Dirección visual
 
@@ -104,9 +105,11 @@ Tres cosas que rompen las reglas de arriba y son deliberadas:
   cabecera sale de la hora. En el servidor se calcularía una vez y quedaría
   congelado en el build: un sitio estático que dice "Cerrado" un martes a las
   once de la mañana es peor que uno que no dice nada.
-- **El mapa es un SVG.** La landing no carga mapas ni tiene clave de API. El
-  croquis lo dice en una línea, porque un mapa que no funciona es peor que uno
-  que no promete nada.
+- **El mapa es un iframe de OpenStreetMap.** No es un SVG ni un croquis: es el
+  `embed` de OSM con un `bbox` armado desde `business.latitude` y
+  `business.longitude`. Se usa OSM y no Mapbox porque no pide credencial, y la
+  landing no tiene variables de entorno; una clave faltante dejaría la sección
+  sin mapa. La atribución la pone el mismo `embed`.
 - **El botón de la demo es local.** El de `components/ui/button.tsx` es el de la
   landing: chico y con esquinas de 0.5rem. El de una página de reservas es una
   píldora alta del tamaño de un dedo. Son dos superficies distintas.
