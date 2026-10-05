@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
-import { demoBusiness, pageDemo, weekdayNames, weekOrder } from '@/content/page-demo';
+import { cn } from '../cn';
+import { demoBusiness, pageDemo, weekdayNames, weekOrder } from '../content';
 
 const business = demoBusiness;
 const labels = pageDemo.labels;

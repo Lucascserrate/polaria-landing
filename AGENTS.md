@@ -93,7 +93,7 @@ mitad del producto que la landing no mostraba en ningún lado, y por eso está
 el enlace y el panel que configura el dueño.
 
 **Es una demostración y no el producto.** Un negocio ficticio, `Estudio Marea`,
-montado a mano en `content/page-demo.ts`: sin API, sin React Query, sin sesión,
+montado a mano en `app/terms/page-demo/content.ts`: sin API, sin React Query, sin sesión,
 sin `polaria-front` y sin datos reales. La reserva se resuelve con un reducer
 local (`use-demo-booking.ts`) y termina en un comprobante que dice que no reservó
 nada. Si alguna vez hay que mostrar un horario real, es otra página y vive en

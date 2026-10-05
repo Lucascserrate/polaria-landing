@@ -1,7 +1,6 @@
-import { Reveal } from '@/components/ui/reveal';
-import { pageDemo } from '@/content/page-demo';
-import { BusinessPage } from './business-page';
-import { PhoneFrame } from './phone-frame';
+import { Reveal } from './reveal';
+import { pageDemo } from './content';
+import { PhoneDemo } from './phone-demo';
 
 export function PageDemo() {
 	return (
@@ -27,9 +26,7 @@ export function PageDemo() {
 					<p className="mb-3 text-center text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-500">
 						Demostración
 					</p>
-					<PhoneFrame>
-						<BusinessPage />
-					</PhoneFrame>
+					<PhoneDemo />
 				</Reveal>
 			</div>
 		</section>

@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
-import { demoBusiness, formatMinutes, pageDemo } from '@/content/page-demo';
+import { cn } from '../cn';
+import { demoBusiness, formatMinutes, pageDemo } from '../content';
 import type { DemoBooking } from '../use-demo-booking';
 import { Pill } from './pill';
 import { priceOf } from './price-of';

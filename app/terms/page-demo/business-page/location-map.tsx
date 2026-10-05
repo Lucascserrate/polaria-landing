@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
-import { demoBusiness } from '@/content/page-demo';
+import { cn } from '../cn';
+import { demoBusiness } from '../content';
 
 const business = demoBusiness;
 

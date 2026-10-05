@@ -1,4 +1,4 @@
-import { demoBusiness, pageDemo } from '@/content/page-demo';
+import { demoBusiness, pageDemo } from '../content';
 import { directionsLabel } from './page-header';
 import { LocationMap } from './location-map';
 

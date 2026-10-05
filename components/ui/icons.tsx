@@ -36,18 +36,3 @@ export const Check = (p: IconProps) => (
 		<path d="m4.5 12.5 5 5 10-11" />
 	</Icon>
 );
-
-/** Cerrar un panel. El único que lleva `aria-label`, porque no tiene texto. */
-export const Close = (p: IconProps) => (
-	<Icon {...p}>
-		<path d="M6 6l12 12M18 6L6 18" />
-	</Icon>
-);
-
-export const CalendarCheck = (p: IconProps) => (
-	<Icon {...p}>
-		<path d="M4.5 8.5h15M7.5 3.5v3M16.5 3.5v3" />
-		<path d="M5.5 5.5h13a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1Z" />
-		<path d="m9 14.5 2 2 4-4.5" />
-	</Icon>
-);

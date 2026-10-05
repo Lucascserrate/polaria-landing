@@ -1,4 +1,4 @@
-import { demoBusiness, formatPrice, pageDemo, type DemoService } from '@/content/page-demo';
+import { demoBusiness, formatPrice, pageDemo, type DemoService } from '../content';
 
 const business = demoBusiness;
 const copy = pageDemo.booking;

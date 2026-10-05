@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
-import { demoBusiness, initials, pageDemo } from '@/content/page-demo';
+import { cn } from '../cn';
+import { demoBusiness, initials, pageDemo } from '../content';
 
 const business = demoBusiness;
 const labels = pageDemo.labels;

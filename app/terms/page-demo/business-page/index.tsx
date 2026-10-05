@@ -2,14 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 
-import { cn } from '@/lib/utils';
-import { demoBusiness, pageDemo, serviceCount } from '@/content/page-demo';
-import {
-	currentDayOfWeek,
-	resolveStatus,
-	upcomingDays,
-} from '../business-status';
-import { useDemoBooking } from '../use-demo-booking';
+import { cn } from '../cn';
+import { currentDayOfWeek, resolveStatus, type BookableDay } from '../business-status';
+import { demoBusiness, pageDemo, serviceCount } from '../content';
+import type { DemoBooking } from '../use-demo-booking';
 import { BookingPanel } from './booking-panel';
 import { Cover, cover } from './cover';
 import { Location } from './location';
@@ -29,20 +25,23 @@ const business = demoBusiness;
  * Client Component entero a propósito: el estado de la cabecera depende de la hora
  * y en el servidor quedaría congelado en el build. Sin `sm:`/`lg:` a propósito:
  * esos miden la ventana del navegador, no el teléfono.
+ *
+ * La reserva, los días y la hora llegan por prop desde `<PhoneDemo>`: el mismo
+ * estado que mueve la demostración automática, para que no haya dos copias.
  */
-export function BusinessPage() {
-	const booking = useDemoBooking();
+export function BusinessPage({
+	booking,
+	days,
+	now,
+}: {
+	booking: DemoBooking;
+	days: BookableDay[];
+	now: Date;
+}) {
 	const { step } = booking.state;
 
-	/*
-	 * `new Date()` en el render y no en un estado: en un `useState` el servidor lo
-	 * correría una vez y la hora quedaría horneada en el HTML para siempre. Leerla
-	 * en cada render no necesita `useMemo` —la diferencia es de segundos—.
-	 */
-	const now = new Date();
 	const status = resolveStatus(business.hours, business.timezone, now);
 	const today = currentDayOfWeek(business.timezone, now);
-	const days = upcomingDays(business.hours, business.timezone, now, 6);
 
 	const panelRef = useRef<HTMLDivElement>(null);
 
@@ -90,7 +89,11 @@ export function BusinessPage() {
 						<p className="text-sm text-ink-600">
 							{serviceCount(business.services.length)}
 						</p>
-						<Pill variant="solid" onClick={booking.open}>
+						<Pill
+							variant="solid"
+							onClick={booking.open}
+							demo="reservar-ahora"
+						>
 							{pageDemo.actions.reserveNow}
 						</Pill>
 					</div>

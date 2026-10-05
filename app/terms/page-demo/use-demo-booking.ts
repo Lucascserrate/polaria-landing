@@ -64,8 +64,7 @@ function reducer(state: DemoState, action: Action): DemoState {
 				? state.serviceIds.filter((id) => id !== action.id)
 				: [...state.serviceIds, action.id];
 
-			// Sacar el último servicio deja el panel abierto: no hay nada que confirmar.
-			return { ...state, serviceIds, dayIso: null, time: null };
+			return { ...state, serviceIds, time: null };
 		}
 
 		case 'chooseDay':

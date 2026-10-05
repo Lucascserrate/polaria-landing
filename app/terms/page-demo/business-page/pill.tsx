@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '../cn';
 
 type PillProps = {
 	children: React.ReactNode;
@@ -11,6 +11,8 @@ type PillProps = {
 	/** Para los lectores de pantalla, cuando lo que se ve es sólo un número. */
 	label?: string;
 	variant?: 'outline' | 'solid';
+	/** `data-demo`: la marca que usa la demostración automática para apuntarlo. */
+	demo?: string;
 };
 
 /**
@@ -26,6 +28,7 @@ export function Pill({
 	className,
 	label,
 	variant = 'outline',
+	demo,
 }: PillProps) {
 	return (
 		<button
@@ -34,6 +37,7 @@ export function Pill({
 			disabled={disabled}
 			aria-pressed={pressed}
 			aria-label={label}
+			data-demo={demo}
 			className={cn(
 				'inline-flex shrink-0 items-center justify-center gap-2 rounded-full px-4 text-sm font-medium whitespace-nowrap transition-colors',
 				'h-11 disabled:pointer-events-none disabled:opacity-40',

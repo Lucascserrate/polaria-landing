@@ -1,14 +1,14 @@
-import { Check, Close } from '@/components/ui/icons';
-import { cn } from '@/lib/utils';
+import { Check, Close } from '../icons';
+import { cn } from '../cn';
 import {
 	demoBusiness,
 	formatMinutes,
 	formatPrice,
 	pageDemo,
 	weekdayShort,
-} from '@/content/page-demo';
+} from '../content';
 import {
-	slotsFor,
+	slotsForSelection,
 	totalDuration,
 	totalPrice,
 	type BookableDay,
@@ -43,7 +43,7 @@ export function BookingPanel({
 	const day = days.find((candidate) => candidate.iso === dayIso);
 	const duration = totalDuration(business.services, serviceIds);
 	const price = totalPrice(business.services, serviceIds);
-	const slots = day ? slotsFor(day.startTime, day.endTime, duration) : [];
+	const slots = slotsForSelection(business.services, serviceIds, day);
 
 	return (
 		<div className="mt-6 rounded-2xl bg-white p-4 ring-1 ring-inset ring-paper-300">
@@ -77,6 +77,7 @@ export function BookingPanel({
 									type="button"
 									onClick={() => booking.toggleService(service.id)}
 									aria-pressed={selected}
+									data-demo={`servicio-${service.id}`}
 									className={cn(
 										'inline-flex h-9 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors',
 										selected
@@ -107,6 +108,7 @@ export function BookingPanel({
 									type="button"
 									onClick={() => booking.chooseDay(candidate.iso)}
 									aria-pressed={selected}
+									data-demo={`dia-${candidate.iso}`}
 									className={cn(
 										'flex h-14 w-full cursor-pointer flex-col items-center justify-center rounded-full text-sm transition-colors',
 										selected
@@ -127,7 +129,7 @@ export function BookingPanel({
 				</ul>
 			</fieldset>
 
-			{day && (
+			{day && serviceIds.length > 0 && (
 				<fieldset className="mt-6">
 					<legend className="text-sm font-medium text-ink-950">
 						{copy.stepTime}
@@ -141,6 +143,7 @@ export function BookingPanel({
 										type="button"
 										onClick={() => booking.chooseTime(slot)}
 										aria-pressed={slot === time}
+										data-demo={`hora-${slot}`}
 										className={cn(
 											'flex h-10 w-full cursor-pointer items-center justify-center rounded-full text-sm tabular-nums transition-colors',
 											slot === time
@@ -185,6 +188,7 @@ export function BookingPanel({
 					onClick={booking.confirm}
 					disabled={!dayIso || !time}
 					className="mt-5 w-full"
+					demo="confirmar"
 				>
 					{pageDemo.actions.confirm}
 				</Pill>

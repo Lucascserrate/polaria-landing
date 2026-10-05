@@ -1,4 +1,4 @@
-import type { BusinessStatus, DemoDay } from '@/content/page-demo';
+import type { BusinessStatus, DemoDay } from './content';
 
 function toMinutes(time: string): number {
 	const [hours, minutes] = time.split(':').map(Number);
@@ -55,7 +55,7 @@ function rangeFor(hours: DemoDay[], dayOfWeek: number): DemoDay | undefined {
 	return hours.find((day) => day.dayOfWeek === dayOfWeek);
 }
 
-export type { BusinessStatus } from '@/content/page-demo';
+export type { BusinessStatus } from './content';
 
 /**
  * Si el negocio está abierto **ahora**. Es la primera línea de la página pública:
@@ -172,6 +172,21 @@ export function slotsFor(
 	}
 
 	return slots;
+}
+
+/**
+ * La grilla del panel con lo que está elegido: servicio y día, en una sola
+ * llamada. Existe para que el panel y la demostración automática miren la misma
+ * grilla. Si el cálculo estuviera duplicado, la automática podría terminar
+ * apretando un turno que el panel no ofrece.
+ */
+export function slotsForSelection(
+	services: readonly { id: string; durationMinutes: number }[],
+	selectedIds: readonly string[],
+	day: BookableDay | undefined,
+): string[] {
+	if (!day) return [];
+	return slotsFor(day.startTime, day.endTime, totalDuration(services, selectedIds));
 }
 
 export function totalDuration(

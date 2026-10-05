@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 
-import { pageDemo } from '@/content/page-demo';
 import { StatusBar } from './status-bar';
 
 export function PhoneFrame({ children }: { children: ReactNode }) {
@@ -17,13 +16,6 @@ export function PhoneFrame({ children }: { children: ReactNode }) {
 					</div>
 				</div>
 			</div>
-
-			<p className="mt-5 text-center text-xs font-medium text-ink-700">
-				{pageDemo.address}
-			</p>
-			<p className="mx-auto mt-1.5 max-w-xs text-center text-xs leading-relaxed text-ink-500">
-				{pageDemo.footnote}
-			</p>
 		</div>
 	);
 }

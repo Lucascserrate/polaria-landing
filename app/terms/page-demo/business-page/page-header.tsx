@@ -1,9 +1,9 @@
-import { cn } from '@/lib/utils';
+import { cn } from '../cn';
 import {
 	demoBusiness,
 	formatStatus,
 	type BusinessStatus,
-} from '@/content/page-demo';
+} from '../content';
 
 const business = demoBusiness;
 

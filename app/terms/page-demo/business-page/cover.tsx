@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { demoBusiness } from '@/content/page-demo';
+import { demoBusiness } from '../content';
 
 const business = demoBusiness;
 

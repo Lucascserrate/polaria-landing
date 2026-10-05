@@ -1,11 +1,11 @@
-import { CalendarCheck } from '@/components/ui/icons';
+import { CalendarCheck } from '../icons';
 import {
 	demoBusiness,
 	formatMinutes,
 	formatPrice,
 	pageDemo,
 	weekdayNames,
-} from '@/content/page-demo';
+} from '../content';
 import {
 	dayLabel,
 	monthNames,
@@ -41,7 +41,10 @@ export function Confirmation({
 	const price = totalPrice(business.services, serviceIds);
 
 	return (
-		<div className="mt-6 rounded-2xl bg-white p-4 ring-1 ring-inset ring-paper-300">
+		<div
+			data-demo="comprobante"
+			className="mt-6 rounded-2xl bg-white p-4 ring-1 ring-inset ring-paper-300"
+		>
 			<div className="flex items-start gap-4">
 				<span className="grid size-11 shrink-0 place-items-center rounded-full bg-ink-950 text-white">
 					<CalendarCheck className="size-5" />
@@ -51,7 +54,6 @@ export function Confirmation({
 					<h4 className="text-lg font-semibold text-ink-950">
 						{copy.done.title}
 					</h4>
-					<p className="mt-1 text-sm text-ink-600">{copy.done.disclaimer}</p>
 				</div>
 			</div>
 

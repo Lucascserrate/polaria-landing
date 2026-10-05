@@ -1,3 +1,23 @@
+import type { StaticImageData } from 'next/image';
+
+import barbero from './assets/barbero.jpg';
+import barbero2 from './assets/barbero2.jpg';
+import corte1 from './assets/corte1.jpg';
+import corte2 from './assets/corte2.jpg';
+import corte3 from './assets/corte3.jpg';
+import corte4 from './assets/corte4.jpg';
+import corte5 from './assets/corte5.png';
+import corte6 from './assets/corte6.jpg';
+import imagendellocal from './assets/imagendellocal.jpg';
+
+/**
+ * Los datos y el copy de la demo.
+ *
+ * Las fotos van como import y no como `/pagina/...`: una ruta de `public/` es
+ * una cadena que sólo resuelve en el proyecto donde está, y esta carpeta tiene
+ * que poder pegarse en otro tal cual.
+ */
+
 export type DemoService = {
 	id: string;
 	name: string;
@@ -10,12 +30,12 @@ export type DemoTeamMember = {
 	id: string;
 	name: string;
 	jobTitle: string | null;
-	photo: string | null;
+	photo: StaticImageData | null;
 };
 
 export type DemoPhoto = {
 	id: string;
-	src: string;
+	src: StaticImageData;
 	alt: string;
 };
 
@@ -125,6 +145,13 @@ export const pageDemo = {
 		confirm: 'Confirmar turno',
 		gotIt: 'Entendido',
 		restart: 'Reiniciar la demostración',
+		/*
+		 * El botón de afuera. El contenido en movimiento de más de cinco segundos
+		 * tiene que poder frenarse a mano: la demostración se reproduce sola y en
+		 * loop, así que sin esto no hay forma de mirarla sin movimiento.
+		 */
+		pauseDemo: 'Pausar la demostración',
+		playDemo: 'Reproducir la demostración',
 	},
 
 	booking: {
@@ -142,8 +169,6 @@ export const pageDemo = {
 			title: '¡Listo, tu turno quedó reservado!',
 			lead: 'Podés sacar otro turno igual, si querés.',
 			important: 'Información importante',
-			disclaimer:
-				'Es una demostración: no se reservó nada de verdad y no te vamos a escribir.',
 		},
 	},
 
@@ -165,7 +190,7 @@ export const pageDemo = {
  * cerrado es lo que hace que el estado de la cabecera tenga algo real que
  * decir —"Cerrado · abre mañana a las 09:00"— en vez de un texto fijo.
  *
- * Las fotos salen de `public/pagina/`. Los servicios son de propósito dispares
+ * Las fotos salen de `assets/`. Los servicios son de propósito dispares
  * en duración: si todos duraran lo mismo, cambiar la selección no cambiaría la
  * grilla de horas y la demostración no estaría enseñando nada.
  */
@@ -221,7 +246,7 @@ export const demoBusiness: DemoBusiness = {
 			id: 'luis',
 			name: 'Luis García',
 			jobTitle: 'Estilista',
-			photo: '/pagina/pexels-leonardokfn-7781850.jpg',
+			photo: barbero2,
 		},
 		{
 			id: 'camila',
@@ -233,45 +258,45 @@ export const demoBusiness: DemoBusiness = {
 			id: 'juan',
 			name: 'Juan Pérez',
 			jobTitle: 'Barbero',
-			photo: '/pagina/barbero.jpg',
+			photo: barbero,
 		},
 	],
 	gallery: [
 		{
 			id: 'local',
-			src: '/pagina/imagendellocal.jpg',
+			src: imagendellocal,
 			alt: 'El salón del Estudio Marea.',
 		},
 	],
 	portfolio: [
 		{
 			id: 'trabajo-1',
-			src: '/pagina/corte1.jpg',
+			src: corte1,
 			alt: 'Corte de pelo terminado.',
 		},
 		{
 			id: 'trabajo-2',
-			src: '/pagina/corte2.jpg',
+			src: corte2,
 			alt: 'Corte de pelo terminado.',
 		},
 		{
 			id: 'trabajo-3',
-			src: '/pagina/corte3.jpg',
+			src: corte3,
 			alt: 'Corte de pelo terminado.',
 		},
 		{
 			id: 'trabajo-4',
-			src: '/pagina/corte4.jpg',
+			src: corte4,
 			alt: 'Corte de pelo terminado.',
 		},
 		{
 			id: 'trabajo-5',
-			src: '/pagina/corte5.png',
+			src: corte5,
 			alt: 'Corte de pelo terminado.',
 		},
 		{
 			id: 'trabajo-6',
-			src: '/pagina/corte6.jpg',
+			src: corte6,
 			alt: 'Corte de pelo terminado.',
 		},
 	],
